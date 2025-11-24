@@ -1,0 +1,67 @@
+\chapter{Introduction}
+Artificial Intelligence (AI) has seen remarkable growth, especially within the realm of Natural Language Processing (NLP). This growth has facilitated the emergence of sophisticated applications that have revolutionized the way humans interact with technology and how machines interpret and process human language. Among these applications, chatbots represent a significant leap forward, evolving from simple text generators to complex entities capable of engaging in detailed conversations, answering questions, converting text to speech, and performing a multitude of tasks tailored to user needs.
+
+This evolution of chatbots has been marked by the transition from basic text generation capabilities to the development of fully functional chatbots equipped with a wide array of features. These advanced chatbots serve various purposes across different sectors, showcasing their versatility and potential. Applications range from customer service bots that assist users by providing timely information and resolving queries to specialized tools like Programmer AI which supports coding and software development processes, and content generation bots that aid in creating diverse forms of written content. The breadth of these applications underscores the transformative impact of AI and NLP technologies across industries.
+
+In the context of these advancements, our focus has shifted towards leveraging AI and NLP in the education sector, leading to the creation of an educational agent. This agent is envisioned as a digital study companion designed to enhance and facilitate the learning process. By integrating AI and machine learning algorithms, the educational agent assumes multiple roles - it can act as a tutor providing personalized instructions, a facilitator guiding learners through educational content, an advisor for academic and career planning, and a companion offering support and motivation throughout the learner's journey.
+
+The educational agent is tailored to address the individual needs and learning preferences of users, providing customized recommendations. This personalized approach ensures a more engaging and effective learning experience, highlighting the potential of AI and NLP to transform educational methodologies and outcomes. Through the development of such educational agents, we aim to harness the power of AI to enrich the educational landscape, making learning more accessible, personalized, and efficient for students worldwide.
+
+
+\section{Motivation}
+The advent of Artificial Intelligence (AI) and Natural Language Processing (NLP) in education marks a pivotal shift towards interactive and personalized learning environments. The evolution from simple text-based interfaces to advanced educational agents encapsulates the technological strides made in AI, transforming how learners engage with educational content. Today, these agents serve not just as tools for information retrieval but as comprehensive educational companions, capable of providing tailored guidance and support. This leap forward is facilitated by significant advancements in AI's capacity to process and understand human language, making educational agents more intuitive and accessible.
+
+The current technological ecosystem offers tools that simplify the creation of these agents, enabling educators and learners to develop bespoke educational platforms without extensive coding knowledge. This democratization of technology paves the way for widespread adoption in educational settings, promising a more personalized learning experience. However, this rapid integration also brings to the fore challenges like data privacy and the need for equitable access, underscoring the importance of navigating these issues as we harness AI to redefine education. Motivated by these developments, our project explores the potential of educational agents to enhance learning, aiming to make education more engaging, accessible, and effective for all.
+
+
+
+\section{Objective}
+The project's objective is to construct and assess an innovative educational agent, poised to redefine the standards of educational technology. Our vision encompasses the creation of a bespoke educational tool, meticulously designed to compare favorably against both a foundational model and the sophisticated capabilities of ChatGPT-4. This endeavor entails the integration of a finely tuned question-answering language model, enhanced by advanced text summarization and precise document querying features. Our goal is to forge an educational agent of unparalleled efficiency, capable of delivering queries from a curated document list on a compact scale. The incorporation of the Whoosh library for document retrieval, coupled with a custom-tailored language model on a Django framework, enables us to provide personalized, contextually aware responses aimed at augmenting understanding, bolstering knowledge retention, and customizing learning experiences to individual needs. This initiative seeks to bridge the educational divide, granting students seamless access to a vast repository of knowledge.
+
+Embarking on this journey, we aim to craft a fully operational educational agent, harnessing minimal resources to rival the performance of extensive language models. Through the application of Retrieval-Augmented Generation (RAG) techniques and meticulous fine-tuning, we have developed a mini-software that directs our model to the appropriate content within the document list.
+
+The project is structured around seven key objectives:
+
+1.	Compilation of a custom dataset featuring context, question, and answer columns.
+
+2.	Identification and selection of an appropriate base model specialized in question answering.
+
+3.	Fine-tuning of the language model using a bespoke dataset focused on probability and statistics questions.
+
+4.	Development of a web interface to facilitate user interaction with the educational agent.
+
+5.	Establishment of a database to archive interactions between the user and the language model.
+
+6.	Creation of a mini-software tool leveraging the Whoosh library for efficient document indexing and retrieval.
+
+7.	Evaluation of the language model's performance through user experience metrics and a reward-based system.
+
+The initial phase involved curating a specialized dataset for the base model. Despite the seemingly straightforward nature of this task, it presented significant challenges, including sourcing and converting data from the internet into a format digestible by our language model. A comprehensive review of existing educational agents and their training datasets was conducted to pinpoint gaps and opportunities for innovation. This process entailed gathering insights from various sources, including academic papers and user testimonials, to compile a robust dataset.
+
+Subsequent phases focused on identifying a suitable language model with constraints on computational resources and the capacity for question answering. The selection process required experimentation with various models to find one that met our criteria for efficiency and ease of fine-tuning. Once selected, the base model underwent fine-tuning with the prepared dataset to enhance its ability to deliver descriptive responses.
+
+Further steps included the creation of a web application to serve as the interface for our educational agent, facilitating user interactions and model evaluation. A comprehensive database schema was also developed to store user details and interaction histories, which was integrated into the web application.
+
+The project's penultimate objective involved the development of a software tool for document context retrieval, optimized for relevance and efficiency. Finally, the project culminates in the evaluation of the language model's performance, focusing on user experience and a novel reward system, rather than direct comparisons between the base and fine-tuned models. This comprehensive approach underscores our commitment to advancing educational technology through innovative solutions.
+
+\section{Technical Approach} 
+The technologies, tools, environment and libraries used were either selected from the research done, some due to previous experience and few due to personal preference. 
+
+Our toolkit is diverse and comprehensive. We've utilized WampServer for our database needs, Anaconda for a virtual environment, Google-Colab for our computational work like fine-tuning and model testing, Django as our web framework, alongside other essential tools like Visual Studio Code, and libraries from the Hugging Face ecosystem.
+
+Languages used were Python for back-end and HTML, CSS, and JavaScript for front-end development. The framework used was Django, a Python-based framework for building web applications.
+
+\section{Project Report Overview} 
+The report is meticulously structured to navigate through the inception, development, and culmination of the project, summing up a comprehensive analysis and application of chatbot technology as an educational agent with question-answering abilities.
+
+Chapter 1: Introduction - This initial segment offers a compact overview, laying the foundation with an introduction that outlines the project's motivation and the problem statement, objectives, and the technical approach adopted. 
+
+Chapter 2: State of the Art - In this chapter, an exhaustive review is conducted, surveying the landscape of current educational agents, advanced chatbots, and multimodal systems with question-answering capabilities. A comparative analysis is performed, particularly focusing on advancements and applications in educational agents. This serves to identify both the strengths and gaps within the current state of the art.
+
+Chapter 3: Design - Reflecting on insights garnered from the comprehensive review in Chapter 2, this section delves into the specific design requirements of the project. It outlines the foundational requirements derived from the comparative analysis and discusses the logical framework for chatbot design. This chapter is pivotal in detailing the design process, including the rationale behind design decisions, the stages of development and setting the milestones is also discussed in this section, and the design was broken down into milestones.
+
+Chapter 4: Implementation - In this chapter, we dive into how we turned our design ideas from the previous chapter into a working chatbot. We walk through the technology choices we made, explaining why we picked them and how we integrated them to work together. We also take a closer look at how we designed the chatbot's user interface in Django and the database with WAMP, we will look at the process of data collection, fine-tuning the base model and the thought behind the chosen model. To bring it all to life, we share a real-life example that shows the steps we took to build the chatbot and tackle any challenges we faced along the way.
+
+Chapter 5: Testing and Evaluation - In this chapter, our attention turns to the detailed testing and evaluation of the educational agent. Instead of merely comparing responses from the language models, we conducted a thorough examination of every phase of the project. Through statistical analysis and practical observations gathered during the project's execution, we assessed the design, architecture, and data used to train the chatbot. This evaluation aimed to critically analyze the chatbot's functionality and how well it meets the project goals. Based on our findings, we identified areas for future improvements. The evaluation methodology adopted a unique approach by assigning ChatGPT-4 a baseline score of 10/10. This allowed us to gauge the educational agent's responses in comparison, offering a relative measure of performance.
+
+Chapter 6: Conclusions - This final chapter brings together the essential insights, results, and achievements of the project, alongside considerations for enhancing the design's scalability. It outlines the significant contributions made to the domain and explores possibilities for further research and development. The chapter also reflects on the obstacles faced during the project and proposes strategies for addressing such challenges in the future. Concluding remarks provide a comprehensive summary of the project's journey, shedding light on its impact on the evolution of educational chatbot technologies. This includes the prospect of imbuing educational agents with emotional and social intelligence, tailoring them to meet the specific needs of users.

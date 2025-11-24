@@ -1,0 +1,344 @@
+\chapter{Literature Review}
+\label{Chapt2}
+In this Chapter, we will discuss the Overview of Current Technologies or Theories, Recent Research and Developments, Comparative Analysis of the leading approaches, limitations, gaps, and challenges that current state-of-the-art technologies, Trends and Evolutions, and References. 
+The platforms used for research and development in the domain were Medium, Google Scholar, and LinkedIn.
+
+
+\section{Background}
+Before delving deeper into our discussion, it's crucial to define what chatbots are, particularly for those who might be unfamiliar with the concept within the realm of Artificial Intelligence (AI). At first, glance, interacting with chatbots may seem like exchanging messages with a robotic entity trying to mimic human behaviour. However, at their core, chatbots are software applications designed to predict and assemble words in a sequence that aims to replicate the flow of humans.
+
+Earlier when chatbots were first introduced they were known as ‘Dialogue Systems’. Chatbots have been trained on large corpses of data that contain texts from different subjects, They learn all the texts and then try to predict what word from their knowledge base would fit to make sense in the situation.
+
+There are a variety of chatbots, Chatbots are categorized based on their functionalities, the technology they use, and their interaction methods. Each category of chatbots serves different needs and purposes, from simple task automation to providing complex, personalized user experiences. The development and implementation of chatbots depend on the specific goals of an organization and the needs of its users. Here in Fig 1, we can see a mind map representing different categories of chatbots as given in Fig \ref{veldis}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.8\textwidth]{background/Mindmap.png}
+      \caption{Categories of Chatbots \cite{categories_chatbots}}
+      \label{veldis}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let us discuss a few examples to understand the different categories of chatbots.
+
+\subsubsection{Conversational}
+A chatbot on a social media platform that can chit-chat with users about daily topics like the weather or news.
+
+\subsubsection{Informative}
+A chatbot is used by a public library to inform users about book availability and library hours.
+
+\subsubsection{Task-Based} 
+A chatbot on a banking website that helps users pay bills, transfer money, or check account balances.
+
+\subsubsection{Rule-Based Chatbots}
+A restaurant's chatbot helps customers place orders by asking them to choose from a menu, specify their order, and provide delivery details, all through a structured set of options.
+
+\subsubsection{Retrieval-Based}
+A FAQ chatbot for a software product that retrieves answers from a set of predefined responses to help users troubleshoot common problems.
+
+\subsubsection{Generative}
+A chatbot that helps users write creative stories by generating original content based on the user's input and plot choices.
+
+\subsubsection{Interpersonal}
+A mental wellness chatbot that provides daily affirmations and engages users in conversations about their feelings and well-being.
+
+\subsubsection{Intrapersonal}
+A personal finance chatbot that helps users set and track financial goals and spending habits.
+
+\subsubsection{Inter-agent}
+A logistics chatbot that coordinates with various warehouse bots to update inventory levels and track shipments.
+
+\subsubsection{Generic}
+A virtual assistant chatbot that can perform a variety of tasks like setting reminders, answering general knowledge questions, or giving directions.
+
+\subsubsection{Open Domain}
+A trivia chatbot that can converse on a wide array of general knowledge topics without specific expertise.
+
+\subsubsection{Closed Domain}
+A medical chatbot that answers health-related questions and provides advice within the confines of medical knowledge.
+
+\subsubsection{Human Mediated}
+A technical support chatbot that initially attempts to solve user issues can escalate the session to a human agent if the problem is too complex.
+
+\subsubsection{Autonomous}
+A hotel booking chatbot that can handle the entire booking process from inquiry to confirmation without human intervention.
+
+\subsubsection{Open Source}
+A chatbot platform that is available on GitHub, allowing developers to contribute to its code and customize it for various uses.
+
+\subsubsection{Commercial}
+A proprietary restaurant reservation chatbot service that restaurants subscribe to for handling their table bookings.
+
+\subsubsection{Text}
+A chat widget on various websites that allows users to type their questions and receive text responses.
+
+\subsubsection{Voice}
+A voice-activated assistant on smartphones that users can talk to for making calls, setting alarms, or searching the internet.
+
+\subsubsection{Image}
+A chatbot in a mobile app that analyzes photos of clothing and suggests similar items for purchase from an online store.
+
+\subsection{History}
+The history of chatbots dates back to 1950 {\href{https://academic.oup.com/mind/article/LIX/236/433/986238}{(Turing A.M. Computing Machinery and Intelligence).}} Alan Turing wondered if a computer program could think and talk to a group of people. His ideas laid the groundwork for what would become chatbot technology. 
+
+Turing aimed to sidestep the philosophical debate about the nature of mind and consciousness and provide a clear, operational test for machine intelligence. He did this by reframing the question of whether machines can think to whether machines can imitate human behaviour indistinguishably. This rephrasing led to the formulation of what he called the "Imitation Game," which we now know as the Turing Test. Turing test is considered by many to be the generative idea of chatbots. Turing test is a game of imitation, often referred to as the "Imitation Game," which involves three participants: a computer, a human, and an interrogator. The interrogator stays in a separate room, away from the computer and the human. The goal of the interrogator is to determine which of the other two participants is human and which is a machine. {\href{https://dl.acm.org/doi/abs/10.1145/357980.357991}{(Weizenbaum J. ELIZA—A computer program for the study of natural language communication between man and machine)}}
+
+In 1966, Joseph Weizenbaum at MIT created ELIZA, the first chatbot ever developed. ELIZA used pattern matching and substitution methodology to simulate conversation and could create the illusion of understanding, although it had no built-in framework for contextualizing events.
+
+ELIZA was a simple program that mimicked conversation by using pattern matching to generate responses, whereas today's chatbots leverage sophisticated artificial intelligence, including natural language processing and machine learning, to deliver personalized, context-aware interactions. Modern chatbots can maintain the context of a conversation over time, learn from past interactions to improve their performance, and seamlessly integrate with various communication platforms, providing services ranging from customer support to personal assistance. This evolution reflects significant advancements in computational linguistics and AI technology, allowing modern chatbots to offer a user experience that is remarkably more dynamic and interactive compared to the basic capabilities of their predecessors.
+
+From simple scripts to advanced AI, chatbots have significantly evolved, becoming more integrated into the fabric of digital interaction and continuing to advance with improvements in Natural Language Processing.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Developing a Chatbot}
+Developing a chatbot involves various approaches, each with its unique methodologies, tools, and technologies. These approaches can be broadly categorized based on the complexity of tasks the chatbot is designed to perform. There are two primary types based on the underlying algorithms and techniques used, “Pattern Matching” and “Machine Learning”.
+
+\subsubsection{Pattern Matching} Encompasses both rule-based and retrieval-based methods under a broader umbrella. This category highlights the reliance on identifiable patterns in user input to guide the bot's responses, emphasizing the deterministic nature of the interaction.
+
+\subsubsection{Machine Learning} Aligns with the more advanced capabilities provided by machine learning and generative models, focusing on the bot's ability to understand natural language, learn from interactions, and generate novel responses based on learned patterns rather than pre-defined rules.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{background/approach.png}
+      \caption{Approaches to develop a Chatbot \cite{categories_chatbots}}
+      \label{approach}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Chatbot Applications Across Sectors}
+
+\subsubsection{Customer Service and Support}
+In the realm of customer service, chatbots have emerged as pivotal tools, offering immediate response capabilities to user inquiries, efficiently addressing routine issues, and directing more complex matters to human agents. This technological advancement significantly boosts customer satisfaction by guaranteeing swift and precise answers around the clock.
+
+\subsubsection{E-commerce and Retail}
+Within the e-commerce industry, chatbots play a vital role in guiding customers through extensive product catalogues, providing customized recommendations, and streamlining the purchasing journey. Their involvement extends to order tracking and return facilitations, thereby elevating the consumer shopping experience.
+
+\subsubsection{Banking and Financial Services}
+The banking sector witnessed a transformative impact through chatbot integration, which delivers personalized financial advice, facilitates transactions, and offers instant account information. This innovation fosters a frictionless banking experience, empowering customers to manage their finances effortlessly.
+
+\subsubsection{Healthcare}
+In healthcare, chatbots serve as instrumental gateways to medical guidance, appointment scheduling, medication reminders, and preliminary diagnostic support. Their deployment aims at enhancing healthcare accessibility and optimizing patient care management.
+
+\subsubsection{Education and Learning}
+Chatbots in the educational sphere function as interactive tutors, delivering personalized support across various subjects and enriching the educational journey with tailored content. This represents a leap forward in fostering engaging and customized learning experiences.
+
+\subsubsection{Travel and Hospitality}
+Travel chatbots assist with the reservation of flights and accommodations, offer insights into destinations, and issue timely travel updates, thereby smoothing out the travel planning process and enriching the hospitality experience.
+
+\subsubsection{Human Resources and Recruitment}
+In human resources and recruitment, chatbots streamline candidate screening, swiftly address employment inquiries, and organize interview schedules, rendering the recruitment workflow more efficient for employers and candidates alike.
+
+\subsubsection{Entertainment and Media}
+Chatbots within the entertainment and media sector tailor recommendations for movies, music, or games, and facilitate bookings and reservations, thus amplifying user engagement with content and events.
+
+\subsubsection{Personal Assistants}
+Personal assistant chatbots play a crucial role in daily schedule management, reminder settings, information retrieval, and task execution, contributing significantly to personal organization and productivity enhancement.
+
+\subsubsection{Social Media Management}
+In social media management, chatbots automate interactions, handling everything from frequently asked questions to audience engagement and content management, aiding brands in sustaining an active and captivating online presence.
+
+\subsubsection{Real Estate}
+Chatbots in real estate aid prospective buyers by offering property listings, arranging viewings, and addressing inquiries, thereby streamlining the property search and acquisition journey.
+
+\subsubsection{Feedback Collection and Surveys}
+Chatbots revolutionize feedback gathering and survey administration by automating these processes, furnishing businesses with critical insights into customer satisfaction and potential areas for enhancement.
+
+\subsubsection{Event Planning and Management}
+Event-focused chatbots provide essential event information, manage registrations, and outline scheduling, simplifying event logistics and improving the attendee experience.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Full-text search principles \cite{full_text_search}}
+Full-text search refers to a comprehensive and sophisticated method for searching within the complete content of documents. It allows users to input text queries and retrieve documents that contain those queries, handling vast amounts of text quickly and efficiently. Full-text search is a fundamental feature of various applications, such as search engines, digital libraries, and document management systems, enabling them to provide relevant results based on the actual content of the documents.
+
+\subsubsection{Components of full-text search}
+\subsubsection{Indexing}
+Indexing is the process of analyzing the text of documents and organizing the information in a way that makes it fast to search. This usually involves creating an inverted index, which is a data structure that maps significant words or tokens found in the documents to their locations in the text. Indexing makes it possible to quickly find all occurrences of a word or phrase within the entire dataset.
+
+\subsubsection{Tokenization}
+During indexing, the text is broken down into individual units called tokens. Tokenization involves parsing the text into words, phrases, or other meaningful elements that can be used in search queries. This step is crucial for understanding the structure and content of the text.
+
+\subsubsection{Stemming and Lemmatization}
+These processes are applied to reduce words to their base or root form. Stemming chops off the ends of words in a heuristic manner, while lemmatization involves using vocabulary and morphological analysis of words to remove inflectional endings. Both are used to improve the chances that different forms of the same word (e.g., "run", "running") are matched during a search.
+
+\subsubsection{Stop Words Removal}
+Common words such as "the", "is", and "at", which appear frequently but don't contribute much to the meaning of the text, are often removed from the index. This step helps in focusing on the more meaningful words that are likely to be used in queries.
+
+\subsubsection{Ranking and Relevance}
+Full-text search systems often incorporate algorithms to rank the results based on their relevance to the search query. This can involve complex calculations that take into account factors such as the frequency of query terms in the document (term frequency), the importance of the terms across all documents (inverse document frequency), and the proximity of query terms within documents.
+
+\subsubsection{Search Query Processing}
+When a search query is received, the system processes this query like how the documents were indexed. This includes tokenization, and possibly stemming or lemmatization, to ensure that the query terms match the indexed terms as closely as possible.
+
+\subsubsection{Boolean Queries, Phrase Searches, and Proximity Searches}
+Full-text search supports complex queries that can include Boolean operators (AND, OR, NOT), exact phrases (" "), and proximity searches that look for terms appearing close to each other within the text. This allows users to formulate precise queries to find exactly what they're looking for.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{AI in Education}
+From the era of chalk dust to the precision of digital styluses, technology has continuously reshaped the landscape of education. 
+
+Artificial Intelligence (AI) in education encompasses a broad spectrum of applications designed to enhance both teaching and learning experiences. The integration of AI technologies, such as machine learning (ML) and natural language processing (NLP), adaptive learning systems, and AI-based grading and test assessments, revolutionizes educational methodologies by offering personalized, engaging, and efficient learning pathways.\cite{shrungare} These technologies enable the analysis of data to identify patterns and make predictions, facilitating a personalized learning experience for each student and aiding educators in customizing learning material to suit individual learning styles\cite{harry}.
+
+AI also supports the administrative side of education, automating tasks such as grading and attendance tracking, thereby saving time and enhancing efficiency. Intelligent tutoring systems, chatbots, and automated assessment tools offer consistent and accurate feedback, further enriching the educational ecosystem.\cite{Chen}
+
+However, the implementation of AI in education faces several challenges, including privacy and security concerns, the cost of AI technologies, potential biases in AI algorithms, and ethical considerations around accessibility and fairness. Addressing these challenges is crucial for realizing the full potential of AI in enhancing educational outcomes.\cite{jaakkola}
+
+In conclusion, AI in education promises a transformative impact on how education is delivered and received, offering personalized, efficient, and interactive learning experiences. The potential benefits of AI in education are significant, ranging from improved student outcomes to enhanced administrative efficiency. Nevertheless, it is essential to navigate the challenges associated with AI's integration into educational settings to ensure a beneficial and equitable impact on the educational landscape.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Role of Chatbots in Education}
+In the contemporary educational landscape, the emergence of chatbot technology represents a paradigm shift towards more interactive and personalized learning experiences. This dissertation chapter examines the multifaceted role of chatbots within the educational sector, highlighting their capacity to redefine traditional learning environments and support mechanisms. Central to this discussion is the premise that chatbots, powered by advancements in artificial intelligence (AI), offer unprecedented opportunities for enhancing student engagement, facilitating personalized learning, and streamlining administrative tasks.
+
+\subsection{Enhancing Teaching and Learning Through Personalized Pathways}
+
+Artificial Intelligence (AI) in education heralds a new era of customized teaching and learning, with technologies like machine learning and natural language processing paving the way for adaptive learning systems, personalized learning experiences, and AI-driven assessments. These innovations enable educators to tailor learning materials to individual students’ needs, optimizing the educational process for effectiveness and engagement.
+
+\subsection{Personalized Learning Experiences}
+
+The essence of AI in education lies in its capacity to create highly personalized learning experiences that adapt to the pace and style of each student. AI technologies can analyze vast amounts of data to identify patterns and predict learning outcomes, offering students tailored learning pathways that enhance their understanding and retention of knowledge. Studies highlight AI’s potential to revolutionize e-learning through virtual tutors and adaptive learning platforms, significantly improving student engagement and outcomes.
+
+One good example of a personalized tool being used in the education sector is. It is a web-based tool tailored for humanities students to effectively summarize their lecture transcripts and to personalize the summaries to their specific needs.\cite{humsum}
+
+\subsection{Administrative Efficiency}
+
+AI significantly enhances the efficiency of educational administration by automating routine tasks such as grading, attendance tracking, and personalized feedback. This not only saves time but also ensures accuracy and consistency in assessments and feedback, creating a more supportive learning environment for students.\cite{murtaza}
+
+\subsection{Challenges and Ethical Considerations}
+
+While the benefits of AI in education are substantial, several challenges must be navigated to realize its full potential. Privacy and security, cost, algorithmic bias, and ethical concerns about accessibility and fairness must be addressed. Ensuring equitable access and responsible use of AI technologies in education is critical for harnessing their benefits without exacerbating existing inequalities.\cite{bundit}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Natural Language Processing Techniques in Education}
+Natural Language Processing, or NLP, is a part of artificial intelligence that helps computers understand, interpret, and respond to human language. This technology is a game-changer in education, making it possible for computers to read, analyze, and even generate text like a human would. It's helping to create smarter, more personalized learning experiences for students everywhere.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Text Classification}
+Text classification is a process where an NLP model assigns a category or label to a given text. In the educational domain, text classification can automate the sorting of academic papers into fields and specialities, facilitating the organization and retrieval of literature for students and researchers. For instance, Huang discussed how NLP technology, through processes like word segmentation and synonym analysis, enhances the retrieval accuracy of educational resources, allowing for a more efficient search based on user requirements.\cite{txt_class}
+
+\subsubsection{Token Classification}
+Token classification, such as Named Entity Recognition (NER), involves labelling specific words or phrases within a larger text corpus. An educational application is the identification of key concepts and terms within learning materials, thus aiding content analysis and helping educators highlight important information for students. Swapnil Raj and Mrinal Paliwal examine how NLP facilitates understanding in educational settings, particularly through its ability to address language barriers between educators and learners.\cite{tokn_class}
+
+\subsubsection{Table Question Answering}
+In education, table question answering can significantly aid data literacy, enabling students to ask and retrieve specific information from structured data sets, such as statistical tables or research data. NLP models specialized in this area can help students extract and comprehend complex data without extensive training in data analysis techniques.
+
+\subsubsection{Question Answering}
+Question-answering systems can assist in educational environments by providing students with immediate, accurate answers to their queries. These systems can draw from a vast pool of knowledge, ranging from textbook databases to online educational resources, offering a level of interaction and responsiveness akin to a personal tutor. 
+
+A research paper titled "Reasoning with Language Models and Knowledge Graphs for Question Answering" talks about QA-GNN, an innovative model blending Graph Neural Networks with Large Language Models and Knowledge Graphs, aimed at enhancing educational chatbots. Through encoding QA contexts and integrating a relevance scoring mechanism, QA-GNN achieves a nuanced understanding and processing of educational content. Evaluated across various domains, it outperforms existing models, showcasing its potential to revolutionize educational assistance by offering precise, context-aware answers. This advancement underscores the symbiotic potential of AI technologies in redefining educational paradigms, highlighting the importance of tailored, efficient learning experiences.\cite{que-ans}
+
+\subsubsection{Zero-Shot Classification}
+Zero-shot classification is particularly useful in educational contexts when students or researchers encounter subjects with sparse training data, such as niche fields of study. This technique can classify content or questions that the model has never explicitly learned, thereby facilitating the organization of new and emerging topics in academia.
+
+Meta-tuning emerges as a groundbreaking approach to refine the zero-shot learning capabilities of large language models like GPT-3, by fine-tuning them on a vast meta-dataset. This method not only surpasses existing benchmarks but also unveils the critical role of model size in performance enhancement. It underscores the untapped potential in zero-shot learning, advocating for unified dataset formats and community collaboration to optimize language models further.\cite{zero-shot}
+
+\subsubsection{Translation}
+Translation services, powered by NLP, are crucial in multilingual education settings, allowing for cross-language understanding and access to a broader range of academic materials. Students and educators can access resources in their native languages, which enhances comprehension and facilitates a more inclusive learning environment.
+
+Exploring the untapped potential of large language models (LLMs) in translation, this study introduces the MAPS framework, embodying Multi-Aspect Prompting and Selection, to closely mimic human translation strategies. By guiding LLMs to analyze source texts and extract key information on keywords, topics, and demonstrations, MAPS significantly refines translation quality, outperforming conventional models and previous state-of-the-art systems in various languages. Comprehensive evaluations, both automatic and human, underscore MAPS's ability to enhance accuracy and reduce errors, spotlighting the value of human-like preparatory steps in machine translation. This work paves the way for future advancements, suggesting that further exploration into LLMs' translation processes could yield even more sophisticated and nuanced translation capabilities.\cite{trans}
+
+\subsubsection{Summarization}
+Automatic summarization tools help students quickly grasp the key points of lengthy academic texts, research papers, or book chapters. This can be particularly beneficial for learners who need to review extensive materials within limited time frames, as highlighted by a comprehensive survey which explores the advancements in abstractive text summarization facilitated by pre-trained language models (PLMs), emphasizing the transition from traditional methods to deep learning techniques that mimic human summarization processes. Highlighting the superiority of PLMs in handling various summarization tasks, the study analyzes these models quantitatively and qualitatively, identifying performance-boosting strategies such as domain adaptation, model augmentation, stable finetuning, and data augmentation. The research underscores the challenges in fine-tuning PLMs and proposes solutions to enhance abstractive summarization systems, offering insights for future innovations in the field.\cite{summ}
+
+\subsubsection{Feature Extraction}
+Feature extraction in NLP is used to identify key linguistic patterns within educational texts. It can, for example, detect the complexity of language used, or identify stylistic features that differentiate academic writing from informal text. Such analysis can assist in the automated grading of student essays or the development of language learning tools.
+
+\subsubsection{Text Generation}
+Text generation capabilities can support creative writing exercises or generate study materials. For example, an NLP system could automatically produce essay prompts or generate example sentences to illustrate grammar rules, thereby enhancing language learning experiences. Now, we can also control the attributes of the generated texts like politeness, formality, sentiment, etc.; demographic attributes of the person writing the text such as gender, age, etc.; content such as information, keywords, entities, etc.; ordering of information, events, like plot summaries etc. Controlling various attributes of text generation has manifold applications.\cite{txt_gen}
+
+\subsubsection{Text2Text Generation}
+Text2Text generation might be employed to paraphrase complex texts into simpler language, aiding comprehension for younger students or those with learning difficulties. It can also be used to adapt educational content to various reading levels or learning styles.
+
+\subsubsection{Fill-Mask}
+The fill-mask task is particularly relevant in language learning applications where students are prompted to complete sentences with the correct word, testing their vocabulary and grammar skills. NLP models can generate such exercises dynamically, providing personalized practice that adapts to a student's learning progress.
+
+\subsubsection{Sentence Similarity}
+Sentence similarity tools can support peer review systems by comparing student submissions to evaluate originality or by matching student questions to existing answers in discussion forums, enhancing the efficiency of online learning platforms.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Existing RAG Chatbots}
+Retrieval-augmented generation (RAG) chatbots represent a groundbreaking fusion of cutting-edge machine learning and vast information repositories. These intelligent systems redefine the frontiers of digital interaction by drawing from a pool of real-time, up-to-date knowledge to deliver responses that are not only contextually rich and nuanced but also verifiable and informed. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+RAG is significant because it addresses challenges related to the static nature of LLMs' training data, which can become outdated and lead to responses that are either incorrect or based on non-authoritative sources. By incorporating an information retrieval step, RAG equips LLMs with the ability to access the most current facts, thereby enhancing user trust through improved response quality and verifiability \cite{amazon} \cite{IBM_rnd} \cite{nvidia}.
+
+In practice, RAG chatbots work by first processing a user query and then searching an external knowledge base to retrieve information relevant to that query. This information is combined with the LLM's internal knowledge to generate a response. By doing so, RAG chatbots are not only providing the most current information but are also capable of citing their sources, which increases their reliability and the users' confidence in the generated answers\cite{amazon}.
+
+Enterprises can benefit from RAG in various ways. For example, RAG can power chatbots that provide specific product information, enhance customer service with precise and current information, and improve internal enterprise search functions for technical documentation and policies. Additionally, RAG helps maintain data privacy and reduces the occurrences of "hallucinations" — where LLMs generate convincing but incorrect responses — by grounding the model's responses in factual information.\cite{nvidia}
+
+NVIDIA's RAG pipeline is an example of an architecture that can be deployed, showcasing how RAG can be integrated into AI applications. It consists of phases such as document ingestion, pre-processing, embedding generation, and storing these embeddings in vector databases for quick retrieval during user interactions.\cite{nvidia}
+
+These developments represent the pinnacle of current RAG chatbot technology, providing a framework for chatbots that can engage in natural interactions with users by leveraging real-time data access, maintaining privacy, and delivering verifiable information. For further information and in-depth technical explanations on RAG and its applications.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fine-tuned LLMs}
+Fine-tuned Large Language Models (LLMs) stand at the pinnacle of AI’s interpretive and generative power, pushing the boundaries of what machines can understand and express. With precision sharpened by domain-specific refinement, these sophisticated AI constructs offer a tailored intelligence, capable of nuanced interaction, complex problem-solving, and generating insightful content that resonates with human inquiry and creativity. 
+
+Models like GPT-4 by OpenAI and Claude v1 by Anthropic are leading the way with their remarkable abilities in complex reasoning, advanced coding capability, and high performance in benchmark tests. Claude v1, for example, is noted for its high scores in tests like MT-Bench and MMLU, surpassing some other models in specific scenarios.\cite{beebom}
+
+Another noteworthy development is the Zephyr-7B model created by Hugging Face. It leverages fine-tuning processes such as Distilled Supervised Fine-Tuning (dSFT) and AI Feedback through Preferences (AIF) to optimize its performance and reliability.\cite{fine_tune}
+
+Additionally, Google's PaLM 2 and Meta's LLaMA 2 models are demonstrating the power of fine-tuning with improvements in speed, parameter efficiency, and support for numerous languages. PaLM 2, while not multimodal like GPT-4, has added capabilities in specific domains like medicine with Med-PaLM 2. \cite{foundation}
+
+In the open-source domain, models such as Falcon, Guanaco, and Vicuna have become key players. Falcon is notable for being released under a permissive Apache 2.0 license, allowing commercial use, and has models trained on up to 40 billion parameters. Guanaco has introduced innovative fine-tuning techniques like QLoRA, allowing for efficient memory usage while preserving performance, and it has performed impressively on various benchmarks.\cite{beebom}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limitations}
+Large Language Models (LLMs), has made significant progress, there are inherent limitations that need to be acknowledged:
+
+\subsubsection{Generalizability vs. Specialization Trade-off}
+Fine-tuned LLMs, despite their precision in specific domains, may lack the broad applicability of more generalized models. The specialization that allows for accuracy in certain contexts can also limit their use in others where the fine-tuning may not align with the required knowledge base. \cite{beebom} \cite{fine_tune}
+
+\subsubsection{Data Privacy and Security}
+As with any AI system that handles real-time data, RAG chatbots must navigate complex privacy and security landscapes. The integration of external databases raises concerns about the handling of sensitive information and the potential for data breaches \cite{amazon} \cite{nvidia}.
+
+\subsubsection{Ethical and Societal Implications}
+Fine-tuning processes such as distilled supervised fine-tuning (dSFT) and AI feedback can sometimes lead to biases in model responses. These biases may reflect the data on which the models are trained, which can perpetuate stereotypes or unfair representations. \cite{fine_tune}
+
+\subsubsection{Maintenance and Upkeep}
+Both RAG chatbots and fine-tuned LLMs require continuous updates to their knowledge bases and fine-tuning datasets to stay relevant and accurate. This ongoing maintenance is resource-intensive and may not be sustainable for all organizations. \cite{amazon} \cite{IBM_rnd}
+
+\subsubsection{Complexity and Resource Intensity}
+Developing and deploying RAG systems or fine-tuned LLMs often demands significant computational power and expertise, which can be barriers for smaller enterprises or independent developers.\cite{IBM_rnd} \cite{nvidia}
+
+\subsubsection{Model Interpretability and Explainability}
+The internal workings of these advanced AI models can be opaque, making it challenging to interpret or explain their decision-making processes. This "black box" issue can complicate efforts to audit or validate the models' responses.\cite{IBM_rnd}
+
+\subsubsection{Dependence on Large Datasets}
+The efficacy of LLMs relies heavily on the availability of large, high-quality datasets. Obtaining such datasets is often difficult, especially for less-represented languages and specialized domains. \cite{foundation}
+
+\subsubsection{Potential for Misuse}
+The advanced capabilities of these models also bring the risk of misuse, such as generating misinformation or being employed in manipulative ways. Ensuring responsible use is an ongoing challenge for the AI community. \cite{foundation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Terminologies}
+    
+\subsubsection{Retrieval-Augmented Generation (RAG)} A process that enhances the output of large language models by referencing external, authoritative knowledge bases before generating responses. \cite{amazon}
+
+\subsubsection{Fine-Tuned Large Language Models (LLMs)}
+These are advanced AI models that have been specifically adjusted or "fine-tuned" on a smaller, specialized dataset to perform well on specific tasks. \cite{beebom}
+
+\subsubsection{Distilled Supervised Fine-Tuning (dSFT)}
+A method that involves training a model on high-quality instructions and responses generated by a teacher language model, allowing for more efficient learning.\cite{fine_tune}
+
+\subsubsection{AI Feedback through Preferences (AIF)}
+A technique where human feedback is collected to assess and enhance the quality of model responses. In the context of AI, it often involves using preferences from a teacher model.\cite{fine_tune}
+
+\subsubsection{Distilled Direct Preference Optimization (dDPO)} A strategy aimed at refining models by maximizing the likelihood of ranking preferred responses higher, often utilizing feedback data for optimization.\cite{fine_tune}
+
+\subsubsection{Transformer-based Models}
+A type of neural network architecture that has become the foundation for most recent advancements in NLP and generative AI. It's renowned for its efficiency in handling sequences of data, like text .\cite{foundation}
+
+\subsubsection{Generative AI}
+Refers to the use of machine learning models, especially LLMs, to generate new content, including text, images, or music, that mimics human-like creativity.\cite{foundation}
+
+\subsubsection{Context Window Size}
+The maximum length of the input that a model can handle at one time, is measured in tokens. Larger context windows allow models to consider more information when generating responses.\cite{foundation}
+
+\subsubsection{Embeddings}
+High-dimensional vectors that represent text in numerical form, allowing for the efficient processing and comparison of textual data.\cite{nvidia}
+
+\subsubsection{Model Hallucinations}
+Occurrences where a model generates convincing but factually incorrect or nonsensical responses.\cite{nvidia}
+
+\subsubsection{Open-Source LLMs}
+Models that are made publicly available for anyone to use, modify, and distribute. They are essential for democratizing access to advanced AI technologies.\cite{beebom}
+
+\subsubsection{Reinforcement Learning from Human Feedback (RLHF)}
+A training method where models are fine-tuned based on human preferences or corrections, improving their alignment with human values or expectations.\cite{foundation}

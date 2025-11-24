@@ -1,0 +1,94 @@
+\chapter{Design}
+\label{latexchapter}
+The design part of the educational agent will be described in this chapter of our dissertation. It is broken down into six sections. Starting with receiving the query up to generating a response. 
+
+\section{System Architecture}
+Let us take a look at the overview of the design. It’s a meticulous process that begins with a user query. This is the starting point, where the interplay between the user and our system initiates. From here, our Whoosh library takes charge, sifting through a vast database to find the most relevant documents.
+
+Once identified, the selected document becomes the 'context' for our query. This context, alongside the query, is then distilled by a text summarizer, which essentially prepares the input for our fine-tuned LLM.
+
+This is where the magic happens – our fine-tuned LLM specifically sharpened for probability and statistics, processes the input. And finally, a precise and informed response is generated, which marks the culmination of a sophisticated query-answering journey.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.8\textwidth]{project/plan.png}
+      \caption{Design overview}
+      \label{design}
+\end{figure}
+
+\subsection{Analysis of the State of the art }
+We're developing an educational bot designed to tackle user inquiries through document analysis. By merging full-text search techniques with a Question-answer model, we're enhancing its context-aware response capability. Our strategy includes using fine-tuning along with RAG for superior performance.
+
+
+Our educational agent's design is crafted to offer an interactive and intelligent platform, enabling users to find answers to complex queries with ease and accuracy. At the heart of this system lies a meticulously engineered process that bridges the gap between vast databases of information and the specific needs of the user. Through a harmonious fusion of advanced search technologies and language processing models, we've created a workflow that not only understands the essence of user queries but also delivers concise and relevant responses. This design narrative begins with the user's curiosity and unfolds through a series of sophisticated technological layers, each contributing to the final goal of providing an enlightening and satisfying user experience. Let's delve into the details of this journey, starting from the initial user query to the delivery of a tailored response.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{project/design1.png}
+      \caption{Query-Response Flow}
+      \label{flowchart}
+\end{figure}
+
+\section{Document Retrieval System}
+In a full-text search, the query interacts with the inverted indexes through a process designed to efficiently find all instances of a search term within a database or a collection of documents. 
+
+This part of the chapter discusses the design principles underpinning full-text search mechanisms, emphasizing the role of inverted indexes. Transforming unstructured text into a structured form that can be queried efficiently, inverted indexes serve as the backbone of modern search engines.
+
+\subsection{Inverted Index Creation}
+An inverted index is a data structure used to store a mapping from content keywords to their locations in a database of documents. It lists each word appearing in the documents and records the list of documents or specific locations within documents where each word occurs. It is the first step in enabling efficient full-text searches across large data sets.
+
+\subsection{Query Processing Workflow}
+\subsubsection{Query Analysis}
+Upon receiving a search query, the system parses and analyzes the query to identify the keywords or phrases to be searched. This phase may involve several preprocessing steps, including:
+
+Normalization: Converting all terms to a standard format, typically lowercase, to ensure consistency in matching.
+
+Stemming: Reducing words to their root form, thereby grouping different forms of a word.
+
+Stopword Removal: Eliminating common words that are unlikely to be useful in finding relevant documents.
+
+\subsubsection{Index Lookup}
+The search engine consults the inverted index to locate the documents containing the query terms. This lookup is efficient, as the index directly maps terms to document locations without necessitating a full scan of the document corpus. For queries comprising multiple terms or incorporating boolean logic, the system retrieves and combines lists from the index as dictated by the query's structure.
+
+\subsubsection{Ranking and Relevance}
+Given that searches may yield a multitude of documents, it is crucial to rank these documents by relevance to the query. The ranking algorithm assesses factors such as the frequency of query terms in each document (term frequency), the significance of the terms across the document corpus (inverse document frequency), and the proximity of query terms within documents. 
+The outcome is a score that signifies each document's relevance, guiding the order in which search results are presented.
+
+\subsection{Results Presentation}
+The final step involves presenting the ranked list of documents to the user, typically highlighting query terms within the context of the document excerpts. This presentation enables users to quickly assess the relevance of each result and select the most pertinent documents for their needs.
+
+Imagine searching a vast digital library with ease, thanks to the magic of inverted indexes. This smart system breaks down the user's query, consults a detailed map of words, and ranks results by relevance, guiding you straight to the information you seek. It's like having a librarian who knows exactly where everything is.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.9\textwidth]{project/design2.png}
+      \caption{Full-text Search}
+      \label{full-text-search}
+\end{figure}
+\section{Language Model Integration}
+
+The language model is seamlessly integrated with our platform’s educational content, enabling it to draw upon a vast repository of knowledge. This integration supports the model’s capability to offer contextually relevant information, answer questions accurately, and provide personalized learning experiences. 
+
+\subsection{Fine Tuning}
+To tailor the language model to our specific educational needs, we embarked on a fine-tuning process, leveraging a custom dataset rich in educational content, ranging from basic concepts to advanced topics in various subjects. This dataset included structured question-answer pairs and explanatory text, enabling the model to learn the nuances of educational discourse and improve its ability to deliver precise, informative responses.
+
+Our fine-tuning approach was iterative, allowing us to refine the model's performance based on continuous feedback loops. We incorporated adjustments to ensure the language model could interpret complex queries, engage users in meaningful educational dialogues, and provide explanations that are accessible.
+
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.9\textwidth]{project/design3.png}
+      \caption{Model Integration}
+      \label{LLM_integration}
+\end{figure}
+
+\section{Current challenges and Future Directions}
+
+With innovation comes the challenge. We're tasked with the development of a sophisticated prompt generator to facilitate dynamic engagement, the adoption of Elasticsearch in future for scalability, personalized education, and the enhancement of problem-solving abilities within our AI agents. This can be done by bringing a custom tokenization method to the picture.
+
+The need for advanced keyword search designs remains paramount for efficient information retrieval, allowing us to optimize keyword search functionality through advanced prioritization and relevance assessment.
+
+We address the crux of our technical challenge: enhancing keyword search functionality. We aim to refine our system to not just search, but to understand the intent and context of queries, ensuring relevance and precision in the information retrieved.
+
+
+Our proposed solution involves a priority system based on uniqueness and relevance, a dynamic model that adapts and learns continuously to ensure that the educational content provided is not just accurate, but truly beneficial for the learner’s journey.

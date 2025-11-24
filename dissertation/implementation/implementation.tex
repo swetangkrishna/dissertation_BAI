@@ -1,0 +1,378 @@
+\chapter{Implementation}
+In this chapter, we are going to delve into the detailed implementation phase of the project. We will begin by outlining the crucial milestones that were pivotal for the project's fruition. The project was systematically segmented into several key stages to ensure a structured and efficient approach to development. Initially, our efforts were concentrated on collecting training data, which laid the foundational groundwork for our project. Subsequently, we shifted our focus to selecting a suitable base model that aligns with our project's objectives and requirements. Following this, the next step involved fine-tuning our chosen base model to enhance its performance and adaptability to our specific needs.
+
+Further advancing in our project timeline, we dedicated resources to creating a web application utilizing Django, a decision motivated by Django's robustness and scalability for web development. Parallelly, we embarked on the development of a mini software designed to meticulously search for keywords within queries, a functionality essential for the interactive aspect of our project. In addition to this, we also developed a program powered by Whoosh, aiming to efficiently locate relevant contexts within a document, thereby augmenting the project's capability to provide contextual information.
+
+The culmination of these individual milestones was the integration of all these components, which facilitated the development of a functional educational agent. This agent is envisioned to serve as an innovative tool in the educational domain, offering a new dimension of interactive learning and information retrieval.
+
+\section{Tools, Technologies and Libraries}
+
+let us explore the diverse and comprehensive toolkit that was instrumental in our project's completion. We initiated our setup by employing WampServer, which served as the backbone for our database requirements, ensuring a stable and efficient data management system. For our computational tasks, we leveraged the capabilities of Google Colab, and Anaconda provided the necessary environment for running our intensive data processing and machine learning models.
+
+Moving forward, Django was chosen as our web framework due to its versatility and support for rapid development, allowing us to construct a robust web application that could seamlessly integrate with the other components of our project. Additionally, we utilized a range of other essential tools, including Visual Studio Code, which offered a conducive development environment for writing and testing our code.
+
+Furthermore, our project benefited significantly from the integration of libraries from the Hugging Face ecosystem. These libraries furnished us with advanced functionalities for natural language processing, enhancing the intelligence and responsiveness of our educational agent. Collectively, these tools and libraries formed the cornerstone of our project, enabling us to achieve our objectives and deliver a sophisticated educational tool.
+
+\subsection{ChatGPT-4}
+ChatGPT-4 was utilized for the generation of question-answer pairs from a curated list of documents. We commenced this phase by uploading more than 30 documents, setting the stage for ChatGPT-4 to perform its task. The directive given to ChatGPT-4 was to generate questions based on the content of each document and to provide answers to these questions separately and descriptively. Through this method, we successfully generated an estimated 100-200 questions per document, amassing a substantial dataset for our purposes.
+
+The subject matter chosen for the focus of our question-answering model was "Probability and Statistics." This decision was guided by the relevance and complexity of the topic, which offered a rich domain for our educational agent to explore and interact with. This initiative not only contributed to the enhancement of our model's capabilities in understanding and processing statistical information but also enriched the pool of educational content available for users interacting with the agent.
+
+
+\subsection{Django}
+We used Django, it is a high-level Python web framework that encourages rapid development and clean, pragmatic design.\cite{django}
+
+It can be used for almost any type of website, from social networks to news sites, and from content management systems to scientific computing platforms. Its versatility makes it suitable for both simple and complex projects.
+
+ Django follows the "Don't Repeat Yourself" (DRY) principle, which promotes the reusability of components, reducing the time and effort required to develop new applications. Its object-oriented design and a wealth of pre-built modules allow for quick development from concept to completion.
+
+
+ \section{Data Gathering}
+We are going to detail the rigorous approach adopted for the collection of training data, a foundational step critical for the success of our project. The process began with the extraction of information from a myriad of sources, with Wikipedia standing out as a primary reservoir of knowledge. This extracted data, initially in diverse formats, was systematically converted into a uniform text format to facilitate ease of processing.
+
+Further into the development phase, ChatGPT emerged as an instrumental tool, assuming a pivotal role in the augmentation of our training dataset. By generating questions and answers based on the information gleaned from our sources, ChatGPT significantly enriched our training set, providing a deeper, more nuanced layer of data for our project. This enhancement was crucial, setting the stage for a more robust and intelligent system capable of understanding and interacting with the complexities of human language.
+
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/imp1.png}
+      \caption{Custom Dataset Creation}
+      \label{data_collection}
+\end{figure}
+
+ \section{Selecting a Base Model}
+ We will delve into the critical process of model selection, a phase that requires meticulous attention to align with the specific needs of our project. It was imperative not just to choose any model, but to identify one that was precisely attuned to our project's objectives. The task at hand was to develop a system capable of answering user queries effectively, necessitating expertise in natural language processing (NLP).
+
+After careful consideration, we selected the 'Roberta-base-squad2' model from the Hugging Face platform. This model is renowned for its NLP capabilities, particularly in question-answering within given contexts. The choice of 'Roberta-base-squad2' was motivated by its proven proficiency in understanding and processing complex queries, making it an ideal candidate for our requirements. This decision was pivotal, ensuring that our system was equipped with a robust and capable NLP foundation, essential for addressing the sophisticated demands of our project.
+
+This model represents an advanced iteration of the 'Roberta-base' model, which has been fine-tuned using the SQuAD 2.0 dataset—a challenging dataset that includes both answerable and unanswerable questions. This fine-tuning process has prepared the model exceptionally well for the task of extractive Question Answering (QA).
+
+\subsubsection{Model Specifications:}
+Language Model: Roberta-base
+
+Language: English
+
+Downstream Task: Extractive QA
+
+Training and Evaluation Data: Both the training and evaluation were conducted using the SQuAD 2.0 dataset.
+
+\subsubsection{Technical Details:}
+
+Infrastructure: Utilized 4x Tesla V100 GPUs for training, ensuring robust computational power.
+
+\subsubsection{Hyperparameters:}
+Batch Size: 96
+
+Number of Epochs: 2
+
+Base Language Model: "Roberta-base"
+
+Maximum Sequence Length: 386
+
+Learning Rate: 3e-5
+
+Learning Rate Schedule: LinearWarmup
+
+Warmup Proportion: 0.2
+
+Document Stride: 128
+
+Maximum Query Length: 64
+
+\subsubsection{Performance Metrics:}
+Exact Match: 79.87
+
+F1 Score: 82.91
+
+Detailed performance for answerable questions ('HasAns exact': 77.94, 'HasAns f1': 84.03) and unanswerable questions ('NoAns exact': 81.80, 'NoAns f1': 81.80).
+
+\subsubsection{Usage:}
+
+This model can be integrated into NLP frameworks like Haystack for scaled question-answering across multiple documents. In the Haystack environment, it can be loaded using either FARMReader or TransformersReader configurations, supporting diverse operational needs. Additionally, using the Transformers library, the model and tokenizer can be directly employed to process QA inputs, offering streamlined access to robust QA capabilities.
+
+By leveraging the 'Roberta-base-squad2' model, our project harnesses top-tier NLP technology to create a dynamic and responsive educational agent, capable of effectively processing and responding to complex query contexts, thereby enhancing the learning experience.
+
+\section{Fine-Tuning LLM}
+In this detailed exploration, we delve into the nuanced process of fine-tuning our foundational Large Language Model (LLM), a pivotal step in realizing the ambitious objectives set forth by our project. The odyssey commenced with the meticulous preparation of our dataset, a phase where precision and foresight played crucial roles. Initially, the dataset was uploaded onto our secure drive, a manoeuvre designed to ensure easy access and manipulation. After this, we transitioned the dataset into the Colab environment, a move executed with the utmost care to guarantee seamless integration. This initial phase was not merely procedural but essential in ensuring the dataset's compatibility with the complex requirements of the Hugging Face ecosystem. By achieving this, we laid down a robust foundation for the intricate steps that followed, setting the stage for a smooth fine-tuning process.
+
+Venturing further into our fine-tuning journey, we encountered the critical task of tokenization. This process is fundamental to the model's understanding and interaction with the dataset. By converting the raw text into a structured array of vectors, we facilitated a form of communication that the LLM could comprehend, effectively narrowing the chasm between human linguistic nuances and machine interpretation. This transformation was not just a technical requirement but a bridge facilitating the LLM's ability to learn and adapt from the dataset presented, a cornerstone in the path towards achieving a model that can mimic human language patterns with high fidelity.
+
+With the dataset now perfectly aligned and tokenized for the LLM's consumption, we advanced to the crucial stage of setting the training arguments. This step was approached with a strategic mindset, aligning our parameters meticulously with the guidelines and recommendations outlined in the model's official documentation. Such alignment was paramount to ensure that our training regimen resonated well with the model's inherent design and parameters, fostering an environment conducive to effective learning.
+
+Following the meticulous configuration of our training parameters, we initiated the trainer, integrating our carefully chosen model and the primed dataset into this framework. This initiation signified the beginning of the fine-tuning phase, a critical period of adaptation and learning for the LLM. The fine-tuning process was both rigorous and enlightening, culminating in the achievement of a model characterized by negligible loss—a testament to the efficacy of our training strategy. This remarkable outcome was not just a milestone but a clear indicator of a highly successful training endeavour, compelling us to safeguard the refined model by saving it onto our drive and readying it for future deployment and the myriad of possibilities that lie ahead.
+
+\subsubsection{A Step by Step explanation:}
+
+First, we had to get our data ready. This meant uploading it to our drive and then moving it to the Colab environment. It was important to do this carefully to make sure the data would work well with the Hugging Face tools we were using.
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/ft1.png}
+      \caption{Preparing Our Dataset}
+      \label{data_collect}
+\end{figure}
+
+Next, we turned our dataset into a format the LLM could understand. We did this by converting the text into vectors, which are like a language that both humans and machines can understand. This step is crucial because it helps the model learn from our data.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/ft2.png}
+      \caption{Tokenizing the Data}
+      \label{data_tokenize1}
+\end{figure}
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/ft3.png}
+      \caption{Preprocessing Function}
+      \label{data_tokenize2}
+\end{figure}
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/ft4.png}
+      \caption{Tokenization Complete}
+      \label{data_tokenize3}
+\end{figure}
+
+After our data was ready, we needed to decide how to train our model. We looked at the model's instructions to figure out the best settings. Matching our training to these recommendations was important to make sure everything worked smoothly.
+
+With our model and dataset ready, and the training settings in place, we began the actual fine-tuning. This process taught our model to get better at its tasks, aiming for very little error or loss by the end.
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/ft5.png}
+      \caption{Setting Training Arguments and starting the Trainer}
+      \label{train}
+\end{figure}
+
+Once the training was done and we were happy with how little error there was, we saved this updated model. Now, it's ready to be used for further tasks.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/ft6.png}
+      \caption{Saving the Improved Model}
+      \label{save}
+\end{figure}
+
+\section{User Interface}
+
+In this section, we will delve into the development of a web application, a pivotal component designed to bridge our Large Language Model (LLM) with its intended users. Utilizing Django, a choice informed by its robustness and seamless integration with the Python framework, we embarked on creating an interactive platform. This platform is not merely the interface of our application but the conduit through which users engage with our LLM. From the moment users navigate to the login page to their dynamic interactions within the user-agent space, our platform ensures a fluid and intuitive experience, facilitating meaningful exchanges and fostering an environment where our LLM can truly come to life.
+
+Upon first visit, users are greeted by the home screen of Edu Score, which presents a clean, professional look with a welcoming message overlaying a serene background of a modern educational setup. The transparency of the overlay ensures the interface feels light and unobtrusive, inviting users to explore the capabilities of the platform. Here, Django's templating language weaves dynamic content into HTML, setting the stage for a tailored user journey.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/ui1.png}
+      \caption{Home Page (Firefox)}
+      \label{home}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code1.png}
+      \caption{Base HTML file}
+      \label{code1}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code2.png}
+      \caption{Home HTML file}
+      \label{code2}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code12.png}
+      \caption{Views python  file}
+      \label{code12}
+\end{figure}
+
+The registration page serves as the initiation point for user engagement, presenting a welcoming and secure entryway into the Edu Score environment. Users are met with a minimalist and straightforward form that requests essential details such as username, email, and password. The design choices here are deliberate—transparent fields overlay the serene backdrop of a scholarly setting, reinforcing the academic focus of the platform while maintaining an inviting ambiance.
+
+Django's authentication system, highly regarded for its security and ease of use, manages the registration process. It ensures that all user credentials are handled with the utmost care, encrypting passwords and safeguarding user data. The simplicity of the form masks the complexity of Django's validation mechanisms, which operate behind the scenes to ensure the integrity of user data and the overall system.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/ui5.png}
+      \caption{Register Page (Firefox)}
+      \label{register}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code6.png}
+      \caption{Register HTML file}
+      \label{code6}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code11.png}
+      \caption{Views python  file}
+      \label{code11}
+\end{figure}
+
+Transitioning to the login page, users encounter a secure and straightforward form, designed to facilitate quick access while maintaining user privacy. Django's authentication system comes into play here, managing user credentials with robust security measures.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/ui2.png}
+      \caption{Login Page (Firefox)}
+      \label{login}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/code3.png}
+      \caption{Login HTML file}
+      \label{code3}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1.0\textwidth]{implementation/code4.png}
+      \caption{Logout HTML file}
+      \label{code4}
+\end{figure}
+
+A dedicated change password page underscores our commitment to security and user control, allowing users to update their credentials through a simple, secure form. Django's built-in authentication system simplifies the process of password management, enforcing strong password policies to protect user accounts.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/ui4.png}
+      \caption{Change Password Page (Firefox)}
+      \label{password}
+\end{figure}
+
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code5.png}
+      \caption{Change Password HTML file}
+      \label{code5}
+\end{figure}
+The agents' page is where the core functionality lives. Here, users can interact with the educational agents—each a product of distinct LLMs, ready to field questions on Probability and Statistics. The page is designed with clarity in mind, hosting interactive elements that allow users to engage with either the base model or its fine-tuned counterpart. This functionality is supported by Django's capability to handle complex back-end logic and serve it up in a user-friendly front-end.
+
+An innovative addition is the 'White Noise' button, which when activated, plays a soothing background sound to enhance concentration while users interact with the application. This feature is a testament to Django's flexibility in integrating multimedia and improving user experience.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/ui3.png}
+      \caption{Agents' Page (Firefox)}
+      \label{agent}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code7.png}
+      \caption{Agents' HTML file}
+      \label{code7}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code8.png}
+      \caption{Agents' HTML file}
+      \label{code8}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code9.png}
+      \caption{Agents' HTML file}
+      \label{code9}
+\end{figure}
+
+\section{Micro Program}
+In this chapter, we shine a spotlight on our micro software, a crucial yet often underappreciated component of our platform. Crafted with precision, this software adeptly segments documents into digestible sections. These sections are subsequently analyzed by Whoosh, a tool we employed for its adeptness at identifying sections most relevant to user queries. Through this process, we are empowered to amalgamate the most pertinent documents into a unified, comprehensive context, thereby ensuring the delivery of highly relevant content to our users. This functionality not only enhances the efficiency of our platform but also significantly elevates the user experience by providing targeted, meaningful information.
+
+This software is a quintessential element within our platform, meticulously designed to parse and dissect documents into manageable sections with surgical precision. Each document is skillfully split into chapters and further divided into smaller sections to ensure that the content is easily navigable and comprehensible.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code17.png}
+      \caption{Context splitting}
+      \label{code17}
+\end{figure}
+
+Our software includes a keyword search functionality, elegantly extracting the essence of user queries and using TF-IDF (Term Frequency-Inverse Document Frequency) to determine the weight and relevance of terms within the corpus. This ensures that the content presented to the user is not only relevant but also of the highest pertinence and quality.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code20.png}
+      \caption{Keyword search}
+      \label{code20}
+\end{figure}
+
+The role of cosine similarity calculations in this ecosystem cannot be overstated. By calculating the cosine similarity between the user's query and the array of document sections, we can rank the content in order of relevance, thereby providing a targeted and tailored response to the user's inquiry.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code21.png}
+      \caption{Context search}
+      \label{code21}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code19.png}
+      \caption{Ranking contexts}
+      \label{code19}
+\end{figure}
+
+\section{Database Management}
+In this section, we turn our focus to the robust database that serves as the backbone of our educational platform. Utilizing the renowned phpMyAdmin interface to interact with MySQL, establishing a strong, structured foundation that effectively supports the complex functionalities of our system.
+
+Within the database, there are tables designed that cater to various aspects of the platform, including user authentication, session management, and storage of conversational histories, all facilitated by Django’s ORM (Object-Relational Mapping) capabilities. This system allows us to manage the relational database through Django models, which simplifies database operations and ensures that our data remains consistent and easily accessible.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code15.png}
+      \caption{Views python code for saving chats to database}
+      \label{code15}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/code23.png}
+      \caption{Object Relational Mapping}
+      \label{code23}
+\end{figure}
+
+The tables within our database, such as agents, auth user, main conversation history, message llm1*, and message llm2* are meticulously crafted to store and organize the data necessary for our platform to function efficiently. For instance, the auth user table manages user information and credentials, while the message llm* tables are designed to store the logs of interactions between users and the various language models employed by our educational agents.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/db1.png}
+      \caption{Object Relational Mapping}
+      \label{db1}
+\end{figure}
+
+The message llm1* table within our database is a pivotal structure for recording and analyzing the interactions between users and the educational agents powered by our LLMs. A similar approach has been taken for message llm2*. Let's delve into the design and purpose of each column in this table:
+
+\subsubsection{id:} A unique identifier for each entry in the table, this field is typically set to auto-increment, ensuring that each new record receives a unique ID automatically.
+
+\subsubsection{session id:} This column records the ID of the user session, linking messages to the specific session in which they were created. It's essential for tracking interactions within a single session, enabling us to provide continuity and context in conversations.
+
+\subsubsection{timestamp:} It stores the exact date and time when the message was logged. This temporal data is critical for time-series analyses, such as understanding peak usage times or measuring response latencies.
+
+\subsubsection{agent id:} This field identifies which of the educational agents has processed the message or provided a response, allowing for granular performance analysis of individual agents.
+
+\subsubsection{user id: } By recording the ID of the user who sent the message, this column allows for personalized user tracking, analysis, and the ability to offer tailored educational experiences.
+
+\subsubsection{message text:}The core content of the user's message or the agent's response is stored here. This text data is crucial for NLP tasks, user interaction analysis, and further machine learning training.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/db2.png}
+      \caption{Columns in table "message llm1*"}
+      \label{db2}
+\end{figure}
+
+To facilitate smooth communication between Django and MySQL, we've configured the database settings in Django’s settings.py file, specifying the database engine, name, user, password, host, and port. This configuration not only ensures that Django can communicate seamlessly with the database but also provides the flexibility to adapt to different environments and requirements.
+
+\begin{figure}[H]
+      \centering
+    \includegraphics[width=1.0\textwidth]{implementation/db3.png}
+      \caption{Connecting Database}
+      \label{db3}
+\end{figure}
+
