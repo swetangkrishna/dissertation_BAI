@@ -5,7 +5,7 @@ This repository contains the dissertation **“Development and Comparative Evalu
 The work explores how educational chatbots can support personalized, context-aware learning, with a focus on probability and statistics. It develops and evaluates a **fine-tuned multimodal Large Language Model (LLM)** for context-based question answering and compares it against:
 
 - a **base question-answering model**, and  
-- **ChatGPT-4** as a strong external benchmark.  [oai_citation:0‡main.pdf](file-service://file_00000000e75071f4809b57c2f71dbe79)  
+- **ChatGPT-4** as a strong external benchmark.
 
 The system combines:
 
